@@ -1,0 +1,479 @@
+#app {
+    height: 100%;
+    font-weight: 600px;
+    overscroll-behavior-y: contain;
+}
+
+.title {
+    font-size: 3rem;
+}
+.dir-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 2rem;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    padding: 0rem 1rem;
+    height: 10%;
+}
+
+.menu-visible {
+    display: flex;
+    gap: 2rem;
+}
+.picker-label {
+    width: 30px;
+}
+.picker-label:hover {
+    filter: invert(0.5);
+    cursor: pointer;
+}
+#img-picker {
+    display: none;
+}
+
+.signin-button,
+.back-button {
+    width: fit-content;
+    color: #60f;
+}
+.signin-button {
+    overflow: hidden;
+    border-radius: 50%;
+    border: none;
+    background: none;
+}
+.signin-button:hover {
+    filter: initial;
+}
+
+.main {
+    height: 90%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    overscroll-behavior-y: contain;
+}
+
+.drop-zone {
+    width: 100%;
+    height: 100%;
+}
+
+.main ::-webkit-scrollbar {
+    /* display: none; */
+}
+.main-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 2rem;
+    overflow-y: scroll;
+    padding: 2rem;
+    overscroll-behavior-y: contain;
+}
+
+.file-status {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.imgs,
+.dirs {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+.img-card {
+    position: relative;
+    background-color: #ddd;
+    border-radius: 1rem;
+    height: fit-content;
+    border: none;
+}
+.img-card:hover img {
+    filter: brightness(0.5);
+}
+.img-card:hover .img-link > img {
+    visibility: visible;
+    filter: invert(1);
+}
+
+.img-link {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    max-width: fit-content;
+}
+.img-link img {
+    visibility: hidden;
+    filter: invert(0.5);
+    width: 100%;
+    transition: filter 0.3s linear;
+}
+
+.preview,
+.drop-zone {
+    position: relative;
+    min-width: 50%;
+    height: 90vh;
+    background-color: #000a;
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    z-index: 2;
+    overflow-y: scroll;
+}
+.preview-full {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.preview-tools {
+    position: absolute;
+    top: 0;
+    opacity: 0.2;
+    /* transform: translate(0%, -50%); */
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+    padding: 1rem 0rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: opacity 0.2s linear;
+}
+.preview-tools:hover {
+    opacity: 1;
+}
+.tool-button {
+    width: 3rem;
+}
+.preview-close {
+    width: 2.5rem;
+}
+.preview-body {
+    max-width: 100%;
+    height: 100%;
+}
+
+.preview-img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: top;
+}
+
+.drop-zone {
+    background: none;
+}
+
+.drop-tools {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    background-color: #eee;
+    z-index: 1;
+}
+.drop-tools button {
+    max-width: 2.4rem;
+}
+.drop-parent,
+.drop-input {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.common-url {
+    max-width: 20rem;
+}
+.drop-area {
+    padding: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    row-gap: 2rem;
+    justify-content: space-evenly;
+}
+.drop-item {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    border-radius: 1rem;
+    max-width: 20rem;
+    background-color: #ddd;
+}
+.drop-item-uploading {
+    filter: brightness(0.5);
+    user-select: none;
+    display: block;
+}
+@keyframes spin {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+.drop-progress {
+    filter: invert(1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: spin 1.5s linear 0s infinite;
+    animation: spin 1.5s linear 0s infinite;
+    user-select: none;
+    width: 3rem;
+}
+.drop-progress-result {
+    animation: none;
+    filter: none;
+}
+.drop-img {
+    height: 25rem;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1rem;
+}
+
+.drop-input {
+    flex-shrink: 2;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    color: #000;
+    background-color: #ddd;
+    border-bottom: 2px solid #000;
+    padding-left: 0.5rem;
+}
+.drop-input::placeholder {
+    color: #555;
+}
+.drop-input:hover {
+    background-color: #ccc;
+}
+.drop-hover {
+    background-color: #9de6;
+}
+.dir {
+    width: 30rem;
+}
+.img {
+    display: block;
+    overflow: hidden;
+    height: fit-content;
+    max-width: 20rem;
+    border-radius: 1rem;
+    border: none;
+}
+.img:hover {
+    cursor: zoom-in;
+}
+.cover {
+    border: 1px solid #000;
+    width: 100%;
+    height: 18rem;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    grid-template-columns: 70% 30%;
+    grid-template-areas:
+        "one two"
+        "one three";
+    border-radius: 1rem;
+    overflow: hidden;
+    gap: 1px;
+    background-color: #ddd;
+}
+
+.cover:hover {
+    filter: brightness(0.5);
+    cursor: pointer;
+}
+.cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border: none;
+}
+
+.cover img:nth-child(1) {
+    grid-area: one;
+}
+.cover img:nth-child(2) {
+    grid-area: two;
+}
+.cover img:nth-child(3) {
+    grid-area: three;
+}
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.4rem;
+    }
+    .header {
+        gap: 1.5rem;
+        height: initial;
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        background-color: #eee;
+    }
+    .picker-label {
+        width: 2.4rem;
+    }
+    .main {
+        height: initial;
+        padding-top: 6rem;
+    }
+    .main-wrapper {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+    .dir-title {
+        font-size: 1.5rem;
+    }
+    .dirs,
+    .imgs {
+        gap: 1rem;
+    }
+    .dir {
+        max-width: 14rem;
+    }
+    .img {
+        max-width: 9rem;
+    }
+    .cover {
+        height: 9rem;
+    }
+    .img-link {
+        width: 2rem;
+    }
+    .img-link img {
+        visibility: visible;
+        filter: invert(1);
+    }
+    .preview,
+    .drop-zone {
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: #000a;
+    }
+    .preview ::-webkit-scrollbar {
+        display: none;
+    }
+    .preview-tools {
+        opacity: 1;
+        border-radius: 50%;
+        padding: 0.5rem;
+        background: none;
+    }
+    .preview-tools button:not(:first-child) {
+        display: none;
+    }
+    .preview-body {
+        height: 100%;
+    }
+    .preview-img {
+        padding: 0;
+        height: 100%;
+    }
+    .common-url {
+        max-width: 15rem;
+    }
+    .drop-input {
+        font-size: 1.3rem;
+    }
+    .drop-item {
+        max-width: 15rem;
+    }
+    .drop-img {
+        height: 15rem;
+    }
+    .drop-progress {
+        width: 2.4rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    button,
+    .picker-label {
+        filter: invert(0.8);
+    }
+    .cover,
+    .img-card {
+        background-color: #333;
+        border: none;
+    }
+    .preview,
+    .drop-zone {
+        background-color: #5555;
+    }
+    .preview-tools {
+        background-color: inherit;
+    }
+    .header {
+        border-bottom: 1px solid #444;
+    }
+
+    .drop-tools {
+        background-color: #222;
+        border-bottom: 1px solid #444;
+    }
+    .drop-input {
+        color: inherit;
+        background-color: #333;
+        border-bottom: 2px solid #000;
+    }
+    .drop-input::placeholder {
+        color: #666;
+    }
+    .drop-input:hover {
+        background-color: #222;
+    }
+    .drop-item {
+        background-color: #333;
+    }
+    .drop-hover {
+        background-color: #9de6;
+    }
+    @media (max-width: 600px) {
+        .preview-tools {
+            background: none;
+        }
+        .preview-close {
+            filter: invert(0);
+        }
+        .header {
+            background-color: #222;
+        }
+    }
+}

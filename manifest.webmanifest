@@ -1,0 +1,15 @@
+{
+    "short_name": "Krabs",
+    "name": "Krabs - Be eaten by Me",
+    "description": "Image viewer",
+    "icons": [
+        {
+            "src": "public/krabs.png",
+            "type": "image/png",
+            "size": "48 * 48"
+        }
+    ],
+    "display": "standalone",
+    "theme_color": "#f00",
+    "background_color": "#000"
+}

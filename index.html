@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#646cff" />
+        <link rel="stylesheet" href="./src/css/style.css" />
+        <title>Krabs</title>
+    </head>
+    <body>
+        <div id="app">
+            <header class="header">
+                <a href="/"><h1 class="title">K</h1></a>
+                <button class="back-button" hidden>
+                    <span>&lt;</span>back
+                </button>
+                <div class="menu" hidden>
+                    <button class="refresh-button">
+                        <img src="./src/assets/refresh.svg" alt="refresh" />
+                    </button>
+                    <label for="img-picker">
+                        <img
+                            src="./src/assets/add.svg"
+                            alt="add"
+                            class="picker-label"
+                        />
+                    </label>
+                    <input
+                        type="file"
+                        name="img-picker"
+                        id="img-picker"
+                        accept="image/*"
+                        multiple
+                    />
+                    <!-- <button class="filter-button">
+                        <img src="./src/assets/filter.svg" alt="filter" />
+                    </button> -->
+                    <button class="signout-button">
+                        <img src="./src/assets/power.svg" alt="signout" />
+                    </button>
+                </div>
+                <button class="signin-button"></button>
+            </header>
+            <main class="main">
+                <div class="main-wrapper" hidden>
+                    <div class="dirs"></div>
+                    <div class="imgs"></div>
+                    <div class="file-status" hidden>no files</div>
+                </div>
+                <div class="preview" hidden>
+                    <div class="preview-body">
+                        <img
+                            src="0"
+                            alt="preview body"
+                            class="preview-img"
+                            data-id="0"
+                        />
+                    </div>
+                    <div class="preview-tools">
+                        <button class="preview-close tool-button">
+                            <img src="./src/assets/close.svg" alt="" />
+                        </button>
+                        <button class="preview-prev tool-button">
+                            <img src="./src/assets/left.svg" alt="" />
+                        </button>
+                        <button class="preview-next tool-button">
+                            <img src="./src/assets/right.svg" alt="" />
+                        </button>
+                        <button class="preview-expand tool-button">
+                            <img src="./src/assets/expand.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+                <div class="drop-zone" hidden>
+                    <div class="drop-tools">
+                        <button class="drop-cancel">
+                            <img
+                                src="./src/assets/cancel.svg"
+                                alt="drop-cancel"
+                            />
+                        </button>
+                        <span class="drop-parent">parent</span>
+                        <input
+                            type="text"
+                            class="drop-input common-url"
+                            placeholder="common-url"
+                            value=""
+                            onclick="this.focus();this.select();"
+                        />
+                        <button class="drop-ok">
+                            <img src="./src/assets/ok.svg" alt="drop-ok" />
+                        </button>
+                    </div>
+                    <div class="drop-area"></div>
+                </div>
+            </main>
+        </div>
+
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 62.5%; /* 10px (default browser's 16px)*/
+    line-height: 1.5;
+
+    color-scheme: light dark;
+    background-color: #eee;
+    color: #222;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: inherit;
+    scroll-behavior: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 1.6rem;
+    /* overscroll-behavior-y: contain; */
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    border: none;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit; /* By default not inherited */
+}
+
+button {
+    background: none;
+    border: none;
+    width: 3rem;
+}
+
+button:hover {
+    cursor: pointer;
+    filter: invert(0.5);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+a {
+    color: inherit; /* Default not inherited */
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #0002;
+    backdrop-filter: blur(10px);
+}
+::-webkit-scrollbar-thumb {
+    background: #1459;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #052;
+}
+
+@media (max-width: 600px) {
+    button {
+        width: 2.4rem;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        background-color: #222;
+        color: #eee;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #052;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #1459;
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+}
